@@ -12,7 +12,7 @@ Create a new project, select `Import YAML/JSON` and then upload the raw file fro
 
 # Why Autoscale?
 Two of the biggest reasons to leverage this capability in OpenShift:
-1) Provide better uptime for your apps when user demand spikes on your apps and services
+1) Provide better uptime for your apps when user demand spikes
 2) Reduce unecessary compute, scale down during periods of inactivity and up when needed
 
 ## License

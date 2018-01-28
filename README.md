@@ -12,14 +12,14 @@ Here's what it looks like:
 First off, you need access to an OpenShift cluster.  Don't have an OpenShift cluster?  That's OK, download the CDK for free here: [https://developers.redhat.com/products/cdk/overview/][5].
 
 There is a template for creating all the components of this example. Use the oc CLI tool:
- > oc new-project autoscaledemo 
- > oc new-app -f https://raw.githubusercontent.com/dudash/openshiftexamples-autoscaling/master/autoscale_instant_template.yaml
+ > `oc new-project autoscaledemo `
+ > `oc new-app -f https://raw.githubusercontent.com/dudash/openshiftexamples-autoscaling/master/autoscale_instant_template.yaml`
 
 *If you don't like the CLI, another option is to create and project and import the template via the web console:*
  > Create a new project, select `Import YAML/JSON` and then upload the raw file from here: `./autoscale_instant_template.yml` into the 
 
 Now to showcase the autoscaling - let's simulate a large user load on the frontend webapp using Apache Benchmark.  If you have `ab` installed just run it against the frontend URL.  Or you can use OpenShfit to pull a [container image containing `ab`][6] and run it as self-terminating like this:
- > oc run web-load --rm --attach --image=jordi/ab -- ab -n 50000 -c 10 http://URL_GOES_HERE
+ > `oc run web-load --rm --attach --image=jordi/ab -- ab -n 50000 -c 10 http://URL_GOES_HERE`
 
 
 ## Why autoscale?
@@ -34,10 +34,10 @@ In order the define autoscaling for an app, we first define how much cpu and mem
 In this example if you want to tweak a few things to in the example the following are the most common asks:
 
 Change the min/max number of replicated containers of the web frontend:
- > oc autoscale dc/webapp --min 1 --max 5 --cpu-percent=60
+ > `oc autoscale dc/webapp --min 1 --max 5 --cpu-percent=60`
 
 Change the request and limit values for the web frontend deployment:
- > oc set resources dc/webapp --requests=cpu=200m,memory=256Mi --limits=cpu=400m,memory=512Mi
+ > `oc set resources dc/webapp --requests=cpu=200m,memory=256Mi --limits=cpu=400m,memory=512Mi`
 
 You can read more about the details of compute resource request and limits [here][4].  You can read about how Quality of Service (QoS) can be leveraged [here][3].  And read about how to further configure autoscaling [here][2].
 

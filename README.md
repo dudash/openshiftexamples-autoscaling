@@ -13,6 +13,7 @@ First off, you need access to an OpenShift cluster.  Don't have an OpenShift clu
 
 There is a template for creating all the components of this example. Use the oc CLI tool:
  > `oc new-project autoscaledemo `
+
  > `oc new-app -f https://raw.githubusercontent.com/dudash/openshiftexamples-autoscaling/master/autoscale_instant_template.yaml`
 
 *If you don't like the CLI, another option is to create and project and import the template via the web console:*

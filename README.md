@@ -1,5 +1,5 @@
 # OpenShift Examples - Autoscaling
-OpenShift can manually or automatically scale application pods up and down based on container metrics such as cpu and memory consumption.  This repo contains an intentionally simple example of automatically scaling (autoscaling) a webapp frontend with OpenShift.
+OpenShift can manually or automatically scale application pods up and down based on container metrics such as cpu and memory consumption.  This git repo contains an intentionally simple example of automatically scaling (autoscaling) a webapp frontend with OpenShift.
 
 Here's what it looks like:
 
@@ -20,7 +20,7 @@ There is a template for creating all the components of this example. Use the oc 
  > Create a new project, select `Import YAML/JSON` and then upload the raw file from here: `./autoscale_instant_template.yml` into the 
 
 Now to showcase the autoscaling - let's simulate a large user load on the frontend webapp using Apache Benchmark.  If you have `ab` installed just run it against the frontend URL.  Or you can use OpenShfit to pull a [container image containing `ab`][6] and run it as self-terminating like this:
- > `oc run web-load --rm --attach --image=jordi/ab -- ab -n 50000 -c 10 http://URL_GOES_HERE`
+ > `oc run web-load --rm --attach --image=jordi/ab -- ab -n 50000 -c 10 http://URL_GOES_HERE/`
 
 
 ## Why autoscale?
@@ -48,12 +48,12 @@ I'm still working on it, but the parts planned are:
 
 * Simple web front end to collect user counts and push to a datbase or backend API layer
 * Backend service, database, or cache to receive data for/from the web frontend
-* OpenShift template (to create/configure everything easily)
-* Key OpenShift components that enable this example
+* Instant app template YAML file (to create/configure everything easily)
+* Key platform components that enable this example
 	* container building (source to image)
 	* container CPU / memory monitoring
 	* container replication and service layer
-	* software defined networking and load balancing router
+	* software defined networking and routing layer
 
 
 ## License

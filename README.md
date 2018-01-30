@@ -9,7 +9,7 @@ Here's what it looks like:
 
 
 ## How to run this?
-First off, you need access to an OpenShift cluster.  Don't have an OpenShift cluster?  That's OK, download the CDK for free here: [https://developers.redhat.com/products/cdk/overview/][5].
+First off, you need access to an OpenShift cluster.  Don't have an OpenShift cluster?  That's OK, download the CDK for free here: [https://developers.redhat.com/products/cdk/overview/][5].  Second you have to have [metrics enabled on your cluster][7].
 
 There is a template for creating all the components of this example. Use the oc CLI tool:
  > `oc new-project autoscaledemo `
@@ -34,7 +34,7 @@ In order the define autoscaling for an app, we first define how much cpu and mem
 
 In this example if you want to tweak a few things to in the example the following are the most common asks:
 
-Change the min/max number of replicated containers of the web frontend:
+Change the min/max number of replicated containers of the web frontend and the CPU request target:
  > `oc autoscale dc/webapp --min 1 --max 5 --cpu-percent=60`
 
 Change the request and limit values for the web frontend deployment:
@@ -65,3 +65,4 @@ Under the terms of the MIT.
 [4]: https://docs.openshift.com/container-platform/3.7/dev_guide/compute_resources.html#dev-cpu-requests
 [5]: https://developers.redhat.com/products/cdk/overview/
 [6]: https://hub.docker.com/r/jordi/ab/
+[7]: https://docs.openshift.com/container-platform/3.7/install_config/cluster_metrics.html

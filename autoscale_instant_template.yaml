@@ -312,3 +312,17 @@ objects:
       deploymentconfig: webapp
     sessionAffinity: None
     type: ClusterIP
+- apiVersion: extensions/v1beta1
+  kind: HorizontalPodAutoscaler
+  metadata:
+    name: webapp
+  spec:
+    scaleRef:
+      kind: DeploymentConfig
+      name: webapp
+      apiVersion: v1
+      subresource: scale
+    minReplicas: 1
+    maxReplicas: 5
+    cpuUtilization:
+      targetPercentage: 30

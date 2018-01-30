@@ -17,7 +17,7 @@ There is a template for creating all the components of this example. Use the oc 
  > `oc new-app -f https://raw.githubusercontent.com/dudash/openshiftexamples-autoscaling/master/autoscale_instant_template.yaml`
 
 *If you don't like the CLI, another option is to create and project and import the template via the web console:*
- > Create a new project, select `Import YAML/JSON` and then upload the raw file from here: `./autoscale_instant_template.yml` into the 
+ > Create a new project, select `Import YAML/JSON` and then upload the raw file from this repo: `autoscale_instant_template.yaml` and make sure autoscaledemo is set as the Namespace parameter.
 
 Now to showcase the autoscaling - let's simulate a large user load on the frontend webapp using Apache Benchmark.  If you have `ab` installed just run it against the frontend URL.  Or you can use OpenShfit to pull a [container image containing `ab`][6] and run it as self-terminating like this:
  > `oc run web-load --rm --attach --image=jordi/ab -- ab -n 50000 -c 10 http://URL_GOES_HERE/`
@@ -44,10 +44,9 @@ You can read more about the details of compute resource request and limits [here
 
 
 ## About the code / software architecture
-I'm still working on it, but the parts planned are:
-
-* Simple web front end to collect user counts and push to a datbase or backend API layer
-* Backend service, database, or cache to receive data for/from the web frontend
+The parts in action here are:
+* Simple web front end to collect user input and push to a database or backend API layer
+* Backend service, a MongoDB database
 * Instant app template YAML file (to create/configure everything easily)
 * Key platform components that enable this example
 	* container building (source to image)

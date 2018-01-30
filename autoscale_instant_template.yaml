@@ -37,6 +37,14 @@ objects:
         storage: 128Mi
   status: {}
 - apiVersion: v1
+  kind: ImageStream
+  metadata:
+    generation: 1
+    labels:
+      app: webapp
+    name: webapp
+    namespace: ${NAMESPACE}
+- apiVersion: v1
   kind: BuildConfig
   metadata:
     labels:
@@ -73,14 +81,6 @@ objects:
     - github:
         secret: 8deb4527c07e1e0a
       type: GitHub
-- apiVersion: v1
-  kind: ImageStream
-  metadata:
-    generation: 1
-    labels:
-      app: webapp
-    name: webapp
-    namespace: ${NAMESPACE}
 - apiVersion: v1
   kind: DeploymentConfig
   metadata:

@@ -3,7 +3,7 @@ OpenShift can manually or automatically scale application pods up and down based
 
 Here's what it looks like:
 
-![Screenshot](./.screens/screenshot.png?raw=true)
+![Screenshot](./.screens/ocpautoscale.gif)
 
 *(:information_source: This example is based on OpenShift Container Platform version 3.7)*
 

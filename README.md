@@ -5,7 +5,7 @@ Here's what it looks like:
 
 ![Screenshot](./.screens/ocpautoscale.gif)
 
-*(:information_source: This example is based on OpenShift Container Platform version 3.7)*
+###### :information_source: This example is based on OpenShift Container Platform version 3.7.  It could work with older versions but has not been tested.
 
 
 ## How to run this?

@@ -20,7 +20,7 @@ There is a template for creating all the components of this example. Use the oc 
  > Create a new project, select `Import YAML/JSON` and then upload the raw file from this repo: `autoscale_instant_template.yaml` and make sure autoscaledemo is set as the Namespace parameter.
 
 Now to showcase the autoscaling - let's simulate a large user load on the frontend webapp using Apache Benchmark.  If you have `ab` installed just run it against the frontend URL.  Or you can use OpenShfit to pull a [container image containing `ab`][6] and run it as self-terminating like this:
- > `oc run web-load --rm --attach --image=jordi/ab -- ab -n 50000 -c 10 http://URL_GOES_HERE/`
+ > `oc run web-load --rm --attach --image=jordi/ab -- -n 50000 -c 10 http://URL_GOES_HERE/`
 
 
 ## Why autoscale?

@@ -312,7 +312,7 @@ objects:
       deploymentconfig: webapp
     sessionAffinity: None
     type: ClusterIP
-- apiVersion: v1
+- apiVersion: autoscaling/v1
   kind: HorizontalPodAutoscaler
   metadata:
     name: webapp

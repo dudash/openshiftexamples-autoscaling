@@ -242,7 +242,13 @@ objects:
           ports:
           - containerPort: 8080
             protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: 400m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
         dnsPolicy: ClusterFirst

@@ -317,7 +317,7 @@ objects:
   metadata:
     name: webapp
   spec:
-    scaleRef:
+    scaleTargetRef:
       kind: DeploymentConfig
       name: webapp
       apiVersion: v1
